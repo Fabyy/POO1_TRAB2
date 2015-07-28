@@ -1,10 +1,12 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 
 public class Arquivo {
    
-    protected Set <Cliente> ListaDeClientes = new HashSet(); 
+    protected Set <Cliente> ListaDeClientes = new HashSet();
     protected Set <Fornecedor> ListaDeFornecedores = new HashSet();
     protected Set <Produto> ListaDeProdutos = new HashSet();
     protected Set <Compras> ListaDeCompras = new HashSet();
@@ -54,17 +56,31 @@ public class Arquivo {
         this.ListaDeVendas = ListaDeVendas;
     }
     
-
-
-    
+ 
     //METODOS
-    protected Cliente CriaClientes(){
-        return null;
+    protected void CriaClientes(File f){
+        
+        try {
+                   
+            String linhasDoArquivo = new String();
+            Scanner leitor = new Scanner (f);
+            leitor.nextLine();
+            
+            while (leitor.hasNext()){
+                
+                linhasDoArquivo = leitor.nextLine();
+                String[] valoresEntreVirgulas = linhasDoArquivo.split(";");
+                
+                System.out.println (valoresEntreVirgulas[1]);
+            }
+        }catch (FileNotFoundException e){
+            System.out.println (e);
+        }
     }
     
-    protected Fornecedor CriaFornecedores(){
+    protected Fornecedor CriaFornecedores(File f){
         return null;
-    } 
+    }
     
     protected Produto CriaProdutos(){
         return null;
