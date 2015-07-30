@@ -1,9 +1,19 @@
 
 public class Fisica extends Cliente {
-    protected String cpf;
+    private String cpf;
 
-    @Override
-    public void Cadastrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Fisica(){
+        super.tipo = 'F';
+    }    
+
+    public String getCpf() {
+        return cpf;
     }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    
+
+
 }
